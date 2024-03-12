@@ -1,0 +1,64 @@
+import java.applet.Applet;
+import java.awt.Button;
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+public class ApprunButton extends Applet implements ActionListener
+{
+ Button b1,b2,b3;
+ Runtime rn= Runtime.getRuntime();
+ public void init()
+ {
+ b1=new Button("Paint");
+ b1.addActionListener(this);
+ add(b1);
+ b2=new Button("VS CODE");
+ b2.addActionListener(this);
+ add(b2);
+ b3=new Button("CHORME");
+ b3.addActionListener(this);
+ add(b3);
+ }
+ public void actionPerformed(ActionEvent e)
+	{
+	Object obj=e.getSource();
+	if(obj==b1)
+	{
+		System.out.println("PAINT IS CLICK");
+		setBackground(Color.red);
+		try 
+		{
+			rn.exec("mspaint.exe");
+		} catch (IOException e1)
+		{
+			e1.printStackTrace();
+		}
+	}
+	else
+		if(obj==b2)
+	{
+		System.out.println("VS CODE IS CLICKED");
+		setBackground(Color.blue);
+		try 
+		{
+			rn.exec("C:\\Users\\vedan\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe");
+		} catch (IOException e1)
+		{
+			e1.printStackTrace();
+		}
+	}
+		else
+		{
+			System.out.println("CHROME IS CLICKED");
+			setBackground(Color.red);
+			try
+			{
+				rn.exec("C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe");
+			} catch (IOException e1)
+			{
+				e1.printStackTrace();
+			}
+		}
+	}
+}
